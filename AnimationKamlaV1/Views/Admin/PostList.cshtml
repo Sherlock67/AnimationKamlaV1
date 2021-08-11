@@ -1,0 +1,54 @@
+@model IEnumerable<AnimationKamlaV1.Models.ViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PostList</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+      <thead class="bg-dark text-white">
+        <tr>
+          <th>Title</th>
+          <th>Rating</th>
+          <th>Image</th>
+          <th>CategoryName</th>
+
+        </tr>
+      </thead>
+
+      @foreach (var item in Model)
+      {
+        <tr>
+          <td>
+            @Html.DisplayFor(modelItem => item.sub.title)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.sub.rating)
+          </td>
+          <td>
+            <img src="@Url.Content(item.sub.ImagePath)" height="100" width="100" />
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.category.categoryname)
+          </td>
+          @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>*@
+        </tr>
+      }
+
+    </table>
+</body>
+</html>

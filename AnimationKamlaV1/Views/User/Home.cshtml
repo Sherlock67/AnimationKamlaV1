@@ -1,0 +1,1307 @@
+@using AnimationKamlaV1.Models
+@model HomeViewModel
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!--====== Required meta tags ======-->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--====== Title ======-->
+  <title>3D Animation, Model And Interior Design </title>
+  <!--====== Favicon Icon ======-->
+  @*<link rel="shortcut icon" href="assets/pic/output-onlinegiftools.gif" type="image/png">*@
+  <link rel="shortcut icon" href="~/assets/pic/output-onlinegiftools.gif" type="image/png" />
+  <!--====== Bootstrap css ======-->
+  @*<link rel="stylesheet" href="assets/css/bootstrap.min.css">*@
+  <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <!--====== Animate css ======-->
+  @*<link rel="stylesheet" href="assets/css/animate.css">*@
+  <link href="~/assets/css/animate.css" rel="stylesheet" />
+  <!--====== Magnific Popup css ======-->
+  @*<link rel="stylesheet" href="assets/css/magnific-popup.css">*@
+  <link href="~/assets/css/magnific-popup.css" rel="stylesheet" />
+  <!--====== Slick css ======-->
+  @*<link rel="stylesheet" href="assets/css/slick.css">*@
+  <link href="~/assets/css/slick.css" rel="stylesheet" />
+  <!--====== Line Icons css ======-->
+  @*<link rel="stylesheet" href="assets/css/LineIcons.css">*@
+  <link href="~/assets/css/LineIcons.css" rel="stylesheet" />
+  <!--====== Default css ======-->
+  @*<link rel="stylesheet" href="assets/css/default.css">*@
+  <link href="~/assets/css/default.css" rel="stylesheet" />
+  <!--====== Style css ======-->
+  @*<link rel="stylesheet" href="assets/css/style.css">*@
+  <link href="~/assets/css/style.css" rel="stylesheet" />
+  <!--====== Responsive css ======-->
+  @*<link rel="stylesheet" href="assets/css/responsive.css">*@
+  <link href="~/assets/css/responsive.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+</head>
+<body style="background-color: black;">
+  <!--====== PRELOADER PART START ======-->
+  <div class="preloader">
+    <div class="spin">
+      <div class="cube1"></div>
+      <div class="cube2"></div>
+    </div>
+  </div>
+
+  <!--====== PRELOADER PART START ======-->
+  <!--====== HEADER PART START ======-->
+
+  <header class="header-area" style="height: 4rem; background-color: black;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg" style="margin-top: -4rem;">
+            <a class="navbar-brand" href="index.html">
+              <img src="~/assets/pic/output-onlinegiftools.gif" alt="Logo" style="height: 150px; width: 10rem;">
+            </a> <!-- Logo -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="bar-icon"></span>
+              <span class="bar-icon"></span>
+              <span class="bar-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul id="nav" class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a data-scroll-nav="0" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a data-scroll-nav="0" href="#product">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a data-scroll-nav="0" href="#service">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a data-scroll-nav="0" href="#showcase">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a data-scroll-nav="0" href="#team">Team</a>
+                </li>
+                <li class="nav-item">
+                  <a data-scroll-nav="0" href="#blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a data-scroll-nav="0" href="#contact">Contact</a>
+                </li>
+              </ul> <!-- navbar nav -->
+            </div>
+          </nav> <!-- navbar -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </header>
+
+  <!--====== HEADER PART ENDS ======-->
+  <!--====== SLIDER PART START ======-->
+
+  <section id="home" class="slider-area pt-100">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        @{ int i = 0;}
+        @foreach (var item in Model.post)
+        {
+          i++;
+          var active = i == 1 ? "active" : "";
+          <div class="carousel-item @active">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card" style="background-color: black;">
+                  <div class="card-body ml-5" style="background-color: black;">
+                    <img class="d-block w-80 " id="image" src=@Url.Content(item.ImagePath) style="height: 30rem;" alt="First slide">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card" style="background-color: black;">
+                  <div class="card-body">
+                    <h5 class="card-title mt-5" style="color: brown; font-size: 45px;">@Html.DisplayFor(x => item.Short_headline)</h5>
+                    @*<p class="card-text mt-5" style="color: white; font-size: 1.5rem;">With supporting text below as a natural lead-in to additional content.</p>*@
+                    <p class="card-text mt-3" style="color: white; font-size: 1.5rem;">@Html.DisplayFor(x => item.CreateByWhom)</p>
+                    <p class="ani"><span style="margin-top: 1rem;">Animation</span><span style="margin-top: 1rem; margin-left: 2rem;"> kamla</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+  <!--====== SLIDER PART ENDS ======-->
+  <!--====== DISCOUNT PRODUCT PART START ======-->
+
+  <section id="discount-product" class="discount-product pt-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="single-discount-product mt-30">
+            <div class="product-image">
+              <img src="~/assets/pic/pic4.jpg" alt="Product">
+            </div> <!-- product image -->
+            <div class="product-content">
+
+              <a href="#"><i class="lni-chevron-right"></i></a>
+            </div> <!-- product content -->
+          </div> <!-- single discount product -->
+        </div>
+        <div class="col-lg-6">
+          <div class="single-discount-product mt-30">
+            <div class="product-image">
+              <img src="~/assets/pic/pic5.png" alt="Product">
+            </div> <!-- product image -->
+            <div class="product-content">
+
+              <a href="#"> <i class="lni-chevron-right"></i></a>
+            </div> <!-- product content -->
+          </div> <!-- single discount product -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== DISCOUNT PRODUCT PART ENDS ======-->
+  <!--====== PRODUCT PART START ======-->
+
+  <section id="product" class="product-area pt-100 pb-130">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4">
+          <div class="collection-menu text-center mt-30">
+            <h4 class="collection-tilte">More Design</h4>
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a  id="v-pills-furniture-tab" data-toggle="pill" href="#v-pills-furniture" role="tab" aria-controls="v-pills-furniture" aria-selected="true">Section1 </a>
+
+
+                <a  id="v-pills-decorative-tab" data-toggle="pill" href="#v-pills-decorative" role="tab" aria-controls="v-pills-decorative" aria-selected="true">Section2</a>
+
+
+                <a  id="v-pills-lighting-tab" data-toggle="pill" href="#v-pills-lighting" role="tab" aria-controls="v-pills-lighting" aria-selected="false">Section2</a>
+
+                <a  id="v-pills-outdoor-tab" data-toggle="pill" href="#v-pills-outdoor" role="tab" aria-controls="v-pills-outdoor" aria-selected="false">Section3</a>
+
+
+                <a  id="v-pills-storage-tab" data-toggle="pill" href="#v-pills-storage" role="tab" aria-controls="v-pills-storage" aria-selected="false">Section</a>
+
+
+              <!-- nav -->
+            </div>
+            </div> <!-- collection menu -->
+          </div>
+        <div class="col-lg-9 col-md-8">
+          <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-furniture" role="tabpanel" aria-labelledby="v-pills-furniture-tab">
+              <div class="product-items mt-30">
+                <div class="row product-items-active">
+                @foreach (var item in Model.allcategory)
+                {
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="@Url.Content(item.ImagePath)" alt="Product" style="height:20rem"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#"></a>@Html.DisplayFor(x=>item.title)</h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        @*<span class="regular-price"></span>
+                        <span class="discount-price"></span>*@
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                }
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://i.pinimg.com/originals/8a/53/71/8a53717e4ceb50e91b71387df63a2a08.jpg" alt="Product" style="height:20rem"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">WOW-two</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://static.turbosquid.com/Preview/2019/11/29__07_37_59/4.jpgB653F524-CB00-41FE-9C3E-087DE9B136D9Large.jpg" alt="Product" style="height:20rem"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">WOW-three</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://cdna.artstation.com/p/assets/images/images/007/441/570/large/zig-lam-90scyclops-01-ziglam3d.jpg?1506157144" alt="Product" style="height:20rem"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">WOW-four</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://i.pinimg.com/originals/8a/53/71/8a53717e4ceb50e91b71387df63a2a08.jpg" alt="Product" style="height:20rem"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">WOW-five</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                </div> <!-- row -->
+              </div> <!-- product items -->
+            </div> <!-- tab pane -->
+
+            <div class="tab-pane fade" id="v-pills-decorative" role="tabpanel" aria-labelledby="v-pills-decorative-tab">
+              <div class="product-items mt-30">
+                <div class="row product-items-active">
+                
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://pbs.twimg.com/media/ElXROi_UcAQsLZt.jpg" style="height:20rem" alt="Product"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://pbs.twimg.com/media/EsmbET3UYAAjBdb.jpg" style="height:20rem" alt="Product"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://pbs.twimg.com/media/ElXQgZ5UcAA4ZCc.jpg" style="height:20rem" alt="Product"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://pbs.twimg.com/media/EKQQ6wcVAAA1Fxm.jpg" style="height:20rem" alt="Product"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="https://pbs.twimg.com/media/ENorekAUcAEo2LD.jpg" style="height:20rem" alt="Product"></a>
+
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                </div> <!-- row -->
+              </div> <!-- product items -->
+            </div> <!-- tab pane -->
+
+            <div class="tab-pane fade" id="v-pills-lighting" role="tabpanel" aria-labelledby="v-pills-lighting-tab">
+              <div class="product-items mt-30">
+                <div class="row product-items-active">
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-1.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                       
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-2.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                         
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                       
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-3.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-1.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-2.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                </div> <!-- row -->
+              </div> <!-- product items -->
+            </div> <!-- tab pane -->
+
+            <div class="tab-pane fade" id="v-pills-outdoor" role="tabpanel" aria-labelledby="v-pills-outdoor-tab">
+              <div class="product-items mt-30">
+                <div class="row product-items-active">
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-1.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-2.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-3.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-1.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-2.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                </div> <!-- row -->
+              </div> <!-- product items -->
+            </div> <!-- tab pane -->
+
+            <div class="tab-pane fade" id="v-pills-storage" role="tabpanel" aria-labelledby="v-pills-storage-tab">
+              <div class="product-items mt-30">
+                <div class="row product-items-active">
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-1.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-2.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-3.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-1.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                  <div class="col-md-4">
+                    <div class="single-product-items">
+                      <div class="product-item-image">
+                        <a href="#"><img src="~/assets/images/product/p-2.jpg" alt="Product"></a>
+                        <div class="product-discount-tag">
+                          <p>-60%</p>
+                        </div>
+                      </div>
+                      <div class="product-item-content text-center mt-30">
+                        <h5 class="product-title"><a href="#">Touchwood Chair</a></h5>
+                        <ul class="rating">
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                          <li><i class="lni-star-filled"></i></li>
+                        </ul>
+                        <span class="regular-price">$59.00</span>
+                        <span class="discount-price">$69.00</span>
+                      </div>
+                    </div> <!-- single product items -->
+                  </div>
+                </div> <!-- row -->
+              </div> <!-- product items -->
+            </div> <!-- tab pane -->
+          </div> <!-- tab content -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== PRODUCT PART ENDS ======-->
+  <!--====== SERVICES PART START ======-->
+
+  <section id="service" class="services-area pt-125 pb-130" style="background-color:rgb(43, 43, 43)">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-title pb-30">
+            <h5 class="mb-15">Our Story</h5>
+            <h3 class="title mb-15">What We DO</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm od tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          </div> <!-- section title -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="services-left mt-45">
+            <div class="services">
+              <img src="assets/images/services/services.jpg" alt="">
+              <a href="#" class="main-btn mt-30">Read More <i class="lni-chevron-right"></i></a>
+            </div> <!-- services btn -->
+          </div> <!-- services left -->
+        </div>
+        <div class="col-lg-6">
+
+          <div class="services-right mt-45">
+            <div class="row justify-content-center">
+              <div class="col-md-6 col-sm-8">
+                <div class="single-services text-center">
+                  <div class="services-icon">
+                    <i class="lni-grid-alt"></i>
+                  </div>
+                  <div class="services-content mt-20">
+                    <h5 class="title mb-10">####</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm od tempor.</p>
+                  </div>
+                </div> <!-- single services -->
+
+                <div class="single-services text-center mt-30">
+                  <div class="services-icon">
+                    <i class="lni-ruler-pencil"></i>
+                  </div>
+                  <div class="services-content mt-20">
+                    <h5 class="title mb-10">####</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm od tempor.</p>
+                  </div>
+                </div> <!-- single services -->
+              </div>
+              <div class="col-md-6 col-sm-8">
+                <div class="single-services text-center mt-30">
+                  <div class="services-icon">
+                    <i class="lni-customer"></i>
+                  </div>
+                  <div class="services-content mt-20">
+                    <h5 class="title mb-10">####</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm od tempor.</p>
+                  </div>
+                </div> <!-- single services -->
+
+                <div class="single-services text-center mt-30">
+                  <div class="services-icon">
+                    <i class="lni-support"></i>
+                  </div>
+                  <div class="services-content mt-20">
+                    <h5 class="title mb-10">####</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm od tempor.</p>
+                  </div>
+                </div> <!-- single services -->
+              </div>
+            </div> <!-- row -->
+          </div> <!-- services right -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== SERVICES PART ENDS ======-->
+  <!--====== SHOWCASE PART START ======-->
+
+  <section id="showcase" class="showcase-area pt-100 pb-130">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="showcase-title pt-25">
+            <h2 class="title">Showcase</h2>
+          </div> <!-- showcase title -->
+        </div>
+        <div class="col-lg-6">
+          <div class="showcase-title pt-25">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo.</p>
+          </div> <!-- showcase title -->
+        </div>
+      </div> <!-- row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="showcase-active mt-65">
+            <div class="single-showcase">
+              <img src="https://wallup.net/wp-content/uploads/2018/09/30/177774-creative-3d-art-surreal-time-chevrolet-retro-748x499.jpg" style="width: 110rem; height: 35rem;" alt="Testimonial">
+              <a href="#" class="main-btn">Full Preview</a>
+            </div> <!-- single showcase -->
+            <div class="single-showcase">
+              <img src="https://w0.peakpx.com/wallpaper/1005/730/HD-wallpaper-artistic-landscape-3d.jpg" style="width: 110rem; height: 35rem;" alt="Testimonial">
+              <a href="#" class="main-btn">Full Preview</a>
+            </div> <!-- single showcase -->
+
+          </div> <!-- showcase active -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== SHOWCASE PART ENDS ======-->
+  <!--====== TEAM PART START ======-->
+
+  <section id="team" class="team-area pt-125 pb-130">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="section-title text-center pb-25">
+            <h3 class="title mb-15">Our Expert Team</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm od tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div> <!-- section title -->
+        </div>
+      </div> <!-- row -->
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-md-6 col-sm-8">
+          <div class="single-temp text-center mt-30">
+            <div class="team-image">
+              <img src="assets/images/team/t-1.jpg"
+                   alt="Team">
+            </div>
+            <div class="team-content mt-30">
+              <h4 class="title mb-10"><a href="#">Celina Gomez</a></h4>
+              <span>FOUNDER</span>
+              <ul class="social mt-15">
+                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                <li><a href="#"><i class="lni-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div> <!-- single temp -->
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-8">
+          <div class="single-temp text-center mt-30">
+            <div class="team-image">
+              <img src="assets/images/team/t-2.jpg"
+                   alt="Team">
+            </div>
+            <div class="team-content mt-30">
+              <h4 class="title mb-10"><a href="#">Patric Green</a></h4>
+              <span>Consultant</span>
+              <ul class="social mt-15">
+                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                <li><a href="#"><i class="lni-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div> <!-- single temp -->
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-8">
+          <div class="single-temp text-center mt-30">
+            <div class="team-image">
+              <img src="assets/images/team/t-3.jpg"
+                   alt="Team">
+            </div>
+            <div class="team-content mt-30">
+              <h4 class="title mb-10"><a href="#">Mark Parker</a></h4>
+              <span>Business Manager</span>
+              <ul class="social mt-15">
+                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                <li><a href="#"><i class="lni-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div> <!-- single temp -->
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-8">
+          <div class="single-temp text-center mt-30">
+            <div class="team-image">
+              <img src="assets/images/team/t-4.jpg"
+                   alt="Team">
+            </div>
+            <div class="team-content mt-30">
+              <h4 class="title mb-10"><a href="#">Daryl Dixon</a></h4>
+              <span>Marketing Manager</span>
+              <ul class="social mt-15">
+                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                <li><a href="#"><i class="lni-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div> <!-- single temp -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== TEAM PART ENDS ======-->
+  <!--====== TESTIMONIAL PART START ======-->
+
+  <section id="testimonial" class="testimonial-area pt-200">
+    <div class="testimonial-bg bg_cover" style="background-image: url(https://streetartevolution.files.wordpress.com/2015/05/san_beastman_nz-3.jpg)"></div>
+    <div class="container" style="margin-top: 12rem;">
+      <div class="row">
+        <div class="col-lg-5 col-md-8">
+          <div class="testimonial-content">
+            <div class="testimonial-active">
+              <div class="single-testimonial">
+                <i class="lni-quotation"></i>
+                <p class="mb-30">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore et dolore magna aliqua.</p>
+                <h6 class="title">Roma De Suza</h6>
+                <span>- CEO, Tesla</span>
+              </div> <!-- single testimonial -->
+              <div class="single-testimonial">
+                <i class="lni-quotation"></i>
+                <p class="mb-30">Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor inc ididunt ut labore et dolore magna aliqua.</p>
+                <h6 class="title">Lisa White</h6>
+                <span>- Designer, Walmart</span>
+              </div> <!-- single testimonial -->
+            </div> <!-- testimonial active -->
+          </div> <!-- testimonial content -->
+        </div>
+        <div class="col-lg-7 col-md-4">
+          <div class="testimonial-play text-right d-none d-md-block">
+            <a class="Video-popup" href="https://www.youtube.com/watch?v=nc5Lj90BzSQ"><i class="lni-play"></i></a>
+          </div> <!-- testimonial play -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== TESTIMONIAL PART ENDS ======-->
+  <!--======  BLOG PART START ======-->
+
+  <section id="blog" class="blog-area pt-125">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="section-title text-center pb-25">
+            <h3 class="title mb-15">From The Blog</h3>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+          </div> <!-- section title -->
+        </div>
+      </div> <!-- row -->
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog mt-30">
+            <div class="blog-image">
+              <img src="https://i.pinimg.com/736x/2c/42/8e/2c428ec4d87b595f2149207c321cc182.jpg" alt="Blog">
+            </div>
+            <div class="blog-content">
+              <div class="content">
+                <h4 class="title"><a href="#">Rowan an orangutan known  & loved</a></h4>
+                <span>25 JULY, 2022</span>
+              </div>
+              <div class="meta d-flex justify-content-between align-items-center">
+                <div class="meta-admin d-flex align-items-center">
+                  <div class="image">
+                    <a href="#"><img src="~/assets/images/blog/admin.jpg" alt="Admin"></a>
+                  </div>
+                  <div class="admin-title">
+                    <h6 class="title"><a href="#">J. PARKER</a></h6>
+                  </div>
+                </div>  <!-- meta admin -->
+                <div class="meta-icon">
+                  <ul>
+                    <li><a href="#"><i class="lni-share"></i></a></li>
+                    <li><a href="#"><i class="lni-heart"></i></a></li>
+                  </ul>
+                </div> <!-- meta icon -->
+              </div> <!-- meta -->
+            </div>
+          </div> <!-- single blog -->
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog mt-30">
+            <div class="blog-image">
+              <img src="https://expertphotography.b-cdn.net/wp-content/uploads/2019/11/3d-photography-5.jpg" alt="Blog">
+            </div>
+            <div class="blog-content">
+              <div class="content">
+                <h4 class="title"><a href="#">Rowan an orangutan known  & loved</a></h4>
+                <span>25 JULY, 2022</span>
+              </div>
+              <div class="meta d-flex justify-content-between align-items-center">
+                <div class="meta-admin d-flex align-items-center">
+                  <div class="image">
+                    <a href="#"><img src="~/assets/images/blog/admin.jpg" alt="Admin"></a>
+                  </div>
+                  <div class="admin-title">
+                    <h6 class="title"><a href="#">J. PARKER</a></h6>
+                  </div>
+                </div>  <!-- meta admin -->
+                <div class="meta-icon">
+                  <ul>
+                    <li><a href="#"><i class="lni-share"></i></a></li>
+                    <li><a href="#"><i class="lni-heart"></i></a></li>
+                  </ul>
+                </div> <!-- meta icon -->
+              </div> <!-- meta -->
+            </div>
+          </div> <!-- single blog -->
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="single-blog mt-30">
+            <div class="blog-image">
+              <img src="https://wallpapercave.com/wp/wp6333834.jpg" style="height: 33.5rem;" alt="Blog">
+            </div>
+            <div class="blog-content">
+              <div class="content">
+                <h4 class="title"><a href="#">Rowan an orangutan known  & loved</a></h4>
+                <span>25 JULY, 2022</span>
+              </div>
+              <div class="meta d-flex justify-content-between align-items-center">
+                <div class="meta-admin d-flex align-items-center">
+                  <div class="image">
+                    <a href="#"><img src="~/assets/images/blog/admin.jpg" alt="Admin"></a>
+                  </div>
+                  <div class="admin-title">
+                    <h6 class="title"><a href="#">J. PARKER</a></h6>
+                  </div>
+                </div>  <!-- meta admin -->
+                <div class="meta-icon">
+                  <ul>
+                    <li><a href="#"><i class="lni-share"></i></a></li>
+                    <li><a href="#"><i class="lni-heart"></i></a></li>
+                  </ul>
+                </div> <!-- meta icon -->
+              </div> <!-- meta -->
+            </div>
+          </div> <!-- single blog -->
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--======  BLOG PART ENDS ======-->
+  <!--====== CONTACT PART START ======-->
+
+  <section id="contact" class="contact-area pt-115">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="contact-title text-center">
+            <h2 class="title">Get In Touch</h2>
+          </div> <!-- contact title -->
+        </div>
+      </div> <!-- row -->
+      <div class="contact-box mt-70">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="contact-info pt-25">
+              <h4 class="info-title">Contact Info</h4>
+              <ul>
+                <li>
+                  <div class="single-info mt-30">
+                    <div class="info-icon">
+                      <i class="lni-phone-handset"></i>
+                    </div>
+                    <div class="info-content">
+                      <p>+88 1234 56789</p>
+                    </div>
+                  </div> <!-- single info -->
+                </li>
+                <li>
+                  <div class="single-info mt-30">
+                    <div class="info-icon">
+                      <i class="lni-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                      <p>contact@yourmail.com</p>
+                    </div>
+                  </div> <!-- single info -->
+                </li>
+                <li>
+                  <div class="single-info mt-30">
+                    <div class="info-icon">
+                      <i class="lni-home"></i>
+                    </div>
+                    <div class="info-content">
+                      <p>203, Envato Labs, Behind Alis Steet,Australia</p>
+                    </div>
+                  </div> <!-- single info -->
+                </li>
+              </ul>
+            </div> <!-- contact info -->
+          </div>
+          <div class="col-lg-8">
+            <div class="contact-form">
+              <form id="contact-form" action="assets/contact.php" method="post" data-toggle="validator">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="single-form form-group">
+                      <input type="text" name="name" placeholder="Enter Your Name" data-error="Name is required." required="required">
+                      <div class="help-block with-errors"></div>
+                    </div> <!-- single form -->
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="single-form form-group">
+                      <input type="email" name="email" placeholder="Enter Your Email" data-error="Valid email is required." required="required">
+                      <div class="help-block with-errors"></div>
+                    </div> <!-- single form -->
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="single-form form-group">
+                      <textarea name="message" placeholder="Enter Your Message" data-error="Please,leave us a message." required="required"></textarea>
+                      <div class="help-block with-errors"></div>
+                    </div> <!-- single form -->
+                  </div>
+                  <p class="form-message"></p>
+                  <div class="col-lg-12">
+                    <div class="single-form form-group">
+                      <button class="main-btn" type="submit">CONTACT NOW</button>
+                    </div> <!-- single form -->
+                  </div>
+                </div> <!-- row -->
+              </form>
+            </div> <!-- row -->
+          </div>
+        </div> <!-- row -->
+      </div> <!-- contact box -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== CONTACT PART ENDS ======-->
+  <!--====== FOOTER PART START ======-->
+
+  <section id="footer" class="footer-area">
+    <div class="container">
+      <div class="footer-widget pt-75 pb-120">
+        <div class="row">
+          <div class="col-lg-3 col-md-5 col-sm-7">
+            <div class="footer-logo mt-40">
+              <a href="#">
+                <h3>Animation Kamla</h3>
+              </a>
+              <p class="mt-10">Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id elit.</p>
+              <ul class="footer-social mt-25">
+                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
+                <li><a href="#"><i class="lni-twitter-original"></i></a></li>
+                <li><a href="#"><i class="lni-instagram"></i></a></li>
+              </ul>
+            </div> <!-- footer logo -->
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-5">
+            <div class="footer-link mt-50">
+              <h5 class="f-title">Services</h5>
+              <ul>
+                <li><a href="#">Architechture Design</a></li>
+                <li><a href="#">Interior Design</a></li>
+                <li><a href="#">Autocad Services</a></li>
+                <li><a href="#">Lighting Design</a></li>
+                <li><a href="#">Poster Design</a></li>
+              </ul>
+            </div> <!-- footer link -->
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-5">
+            <div class="footer-link mt-50">
+              <h5 class="f-title">Help</h5>
+              <ul>
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div> <!-- footer link -->
+          </div>
+          <div class="col-lg-4 col-md-5 col-sm-7">
+            <div class="footer-info mt-50">
+              <h5 class="f-title">Contact Info</h5>
+              <ul>
+                <li>
+                  <div class="single-footer-info mt-20">
+                    <span>Phone :</span>
+                    <div class="footer-info-content">
+                      <p>+88123 4567 890</p>
+                      <p>+88123 4567 890</p>
+                    </div>
+                  </div> <!-- single footer info -->
+                </li>
+                <li>
+                  <div class="single-footer-info mt-20">
+                    <span>Email :</span>
+                    <div class="footer-info-content">
+                      <p>contact@yourmail.com</p>
+                      <p>support@yourmail.com</p>
+                    </div>
+                  </div> <!-- single footer info -->
+                </li>
+                <li>
+                  <div class="single-footer-info mt-20">
+                    <span>Address :</span>
+                    <div class="footer-info-content">
+                      <p>5078 Jensen Key, Port Kaya, WV 73505</p>
+                    </div>
+                  </div> <!-- single footer info -->
+                </li>
+              </ul>
+            </div> <!-- footer link -->
+          </div>
+        </div> <!-- row -->
+      </div> <!-- footer widget -->
+      <div class="footer-copyright pt-15 pb-15">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="copyright text-center">
+              <p>Created by <a href="#" rel="nofollow">Ashab</a></p>
+            </div> <!-- copyright -->
+          </div>
+        </div> <!-- row -->
+      </div> <!--  footer copyright -->
+    </div> <!-- container -->
+  </section>
+  <!--====== FOOTER PART ENDS ======-->
+  <!--====== BACK TO TOP PART START ======-->
+
+  <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+  
+  
+  <!--====== BACK TO TOP PART ENDS ======-->
+  <!--====== jquery js ======-->
+  @*<script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>*@
+  <script src="~/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+  @*<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>*@
+  <script src="~/assets/js/vendor/jquery-1.12.4.min.js"></script>
+
+  <!--====== Bootstrap js ======-->
+  @*<script src="assets/js/bootstrap.min.js"></script>*@
+  <script src="~/assets/js/bootstrap.min.js"></script>
+
+
+  <!--====== Slick js ======-->
+  @*<script src="assets/js/slick.min.js"></script>*@
+  <script src="~/assets/js/slick.min.js"></script>
+
+  <!--====== Magnific Popup js ======-->
+  @*<script src="assets/js/jquery.magnific-popup.min.js"></script>*@
+  <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+
+
+  <!--====== nav js ======-->
+  @*<script src="assets/js/jquery.nav.js"></script>*@
+  <script src="~/assets/js/jquery.nav.js"></script>
+
+  <!--====== Nice Number js ======-->
+  @*<script src="assets/js/jquery.nice-number.min.js"></script>*@
+  <script src="~/assets/js/jquery.nice-number.min.js"></script>
+
+  <!--====== Main js ======-->
+  @*<script src="assets/js/main.js"></script>*@
+  <script src="~/assets/js/main.js"></script>
+
+</body>
+
+</html>

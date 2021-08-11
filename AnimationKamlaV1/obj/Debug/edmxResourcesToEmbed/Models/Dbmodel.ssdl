@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="animationkamlaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="categoryid" />
+    </Key>
+    <Property Name="categoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_category_sub">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="rating" Type="int" />
+    <Property Name="ImagePath" Type="varchar(max)" />
+    <Property Name="categoryid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_home">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImagePath" Type="varchar(max)" />
+    <Property Name="Short_headline" Type="varchar" MaxLength="50" />
+    <Property Name="CreateByWhom" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="animationkamlaModelStoreContainer">
+    <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_category_sub" EntityType="Self.tbl_category_sub" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_home" EntityType="Self.tbl_home" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

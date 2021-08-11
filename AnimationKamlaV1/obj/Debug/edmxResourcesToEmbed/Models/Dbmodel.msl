@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="animationkamlaModelStoreContainer" CdmEntityContainer="animationkamlaEntities">
+    <EntitySetMapping Name="tbl_home">
+      <EntityTypeMapping TypeName="animationkamlaModel.tbl_home">
+        <MappingFragment StoreEntitySet="tbl_home">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Short_headline" ColumnName="Short_headline" />
+          <ScalarProperty Name="CreateByWhom" ColumnName="CreateByWhom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_category">
+      <EntityTypeMapping TypeName="animationkamlaModel.tbl_category">
+        <MappingFragment StoreEntitySet="tbl_category">
+          <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_category_sub">
+      <EntityTypeMapping TypeName="animationkamlaModel.tbl_category_sub">
+        <MappingFragment StoreEntitySet="tbl_category_sub">
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
